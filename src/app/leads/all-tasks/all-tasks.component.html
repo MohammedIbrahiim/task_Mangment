@@ -46,3 +46,19 @@
     </div>
   </section>
 </form>
+
+<div *ngIf="taskArray | async as data">
+  <h2>Data:</h2>
+  <ul>
+    <li *ngFor="let item of data ; let i =index">{{ item.title }} 
+  <button (click)="deleteTask(i)">delete</button>
+  <button (click)="taskByIndex(i)">DETAILS</button>
+</li>
+  </ul>
+
+</div>
+
+
+<div>
+  <p>{{selectTask?.title}}</p>
+</div>

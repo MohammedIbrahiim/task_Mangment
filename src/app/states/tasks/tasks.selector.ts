@@ -1,8 +1,15 @@
 import { createSelector } from '@ngrx/store'
 import {AppState} from'../app.state'
 
-export const selectTaskState = (state:AppState)=>state.tasks
-export const selectTask = createSelector(
+
+// ============= for select state to return it ===================
+export const selectTaskState = (state:AppState)=>state.task
+
+// ============= make selector for return state by index
+// when take parameter (param that i want to take it ) => createSelector (name of return state  , arrow function to return what we need )
+export const selectTaskById =(taskIndex:number)=> createSelector(
     selectTaskState,
-    (state)=>state.tasks
+    (task:any)=>{
+        return task[taskIndex]
+    }
 )

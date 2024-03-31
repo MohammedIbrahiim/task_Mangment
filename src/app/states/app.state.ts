@@ -1,5 +1,5 @@
-import {TodoState} from './tasks/tasks.reducer'
+import { Task } from "../interface/tasks";
 
 export interface AppState  {
-    tasks:TodoState
+    task: Task[];
 }
