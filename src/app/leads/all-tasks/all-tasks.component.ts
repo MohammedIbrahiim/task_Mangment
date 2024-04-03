@@ -6,7 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormControl, FormGroup } from '@angular/forms';
 
 // ==============import actions from ngrx ==================
-import{addTask,reomveTask} from'../../states/tasks/tasks.action'
+import{addTask,reomveTask,getTasks,invokeApi} from'../../states/tasks/tasks.action'
 import{selectTaskById} from'../../states/tasks/tasks.selector'
 // =============for make dispatch ===============
 import { select,Store,props } from '@ngrx/store';
@@ -48,16 +48,20 @@ export class AllTasksComponent implements OnInit   {
 
   // ============================================================== get all data tasks ==================================================
   getAllLeads(){
-    console.log('test');
+    // console.log('test');
     
-      this._TasksService.getLeads().subscribe(res=>{
-        this.dataArray = res
-        console.log(this.dataArray);
-        
-        this.tableDataWithpaginator()
-      })
+    //   this._TasksService.getLeads().subscribe(res=>{
+
+    //     this.dataArray = res
+    //     console.log(this.dataArray);
 
 
+    //     // ============= for get tasks and sent it to store ============
+    //     this.tableDataWithpaginator()
+    //   })
+
+
+      this._store.dispatch(invokeApi())
     
 }
   // ============================================================== add task ==================================================

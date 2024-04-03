@@ -2,11 +2,13 @@ import { createReducer, on } from '@ngrx/store';
 
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import {Task} from 'src/app/interface/tasks'
-import {addTask , reomveTask} from '../tasks/tasks.action'
+import {addTask , reomveTask,getTasks} from '../tasks/tasks.action'
+import { state } from '@angular/animations';
 
 
 
 export const initalState:ReadonlyArray<Task> = []
+
 
 // task reducer create by ==> (createreducer)
 //  in  createReducer(it take first (initalState) 
@@ -14,6 +16,10 @@ export const initalState:ReadonlyArray<Task> = []
 
 const _taskReducer = createReducer(
     initalState ,
+    // get task 
+    on(getTasks,(state,{task})=>{
+        return [...task]
+    }),
     // add task 
     on(addTask , (state,{task})=>{
         return [...state , task]

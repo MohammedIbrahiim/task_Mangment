@@ -3,9 +3,14 @@ import { Task } from '../../interface/tasks';
 
 
 
-
-// ============= ADD TASK ACTION ================
+// ============= get TASK ACTION ================
+  export const getTasks = createAction('[get task] add' , props<{task:Task[]}>()) 
+  // ============= ADD TASK ACTION ================
   export const addTask = createAction('[add task] add' , props<{task:Task}>()) 
-
-// ============= Remove Task Action ============= 
+  
+  // ============= Remove Task Action ============= 
   export const reomveTask = createAction('[remove task] delete' , props<{taskId:number}>()) 
+
+
+  // ============ apply effect =============
+  export const invokeApi = createAction('[ task Api] Invoke APi' ) 
